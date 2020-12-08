@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8"> 
+    <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
+    <title>个人资料</title>
+    <link rel="stylesheet" href="css/css.css?1" />
+    <link rel="stylesheet" href="js/layui/css/layui.mobile.css">
+</head>
+<body>
+        <div class="userInfo" id="userInfo">
+                <div class="head">
+                    <img :src="headImgUrl" />
+                </div> 
+                <div class="content">
+                    <ul>
+                        <li >
+                           <b>姓名</b><span>{{userName}}</span>
+                         </li>
+                         <li >
+                            <b>手机号</b><span>{{phone}}</span>
+                        </li> 
+                        <li >
+                            <b>性别</b><span>{{gender}}</span>
+                        </li> 
+                        <li >
+                            <b>生日</b><span>{{birthday}}</span>
+                        </li> 
+                        <li >
+                            <b>职业</b><span>{{occupation}}</span>
+                        </li> 
+                        <li >
+                            <b>所属门店</b><span>{{shopName}}</span>
+                        </li> 
+                        <li >
+                            <b>专属导购</b><span>{{employName}}</span>
+                        </li> 
+                        <li >
+                            <b>微信号</b><span>{{wechat}}</span>
+                        </li> 
+                    </ul>
+                </div>
+            </div>
+            <script src="js/vue.js"></script>
+            <script src="js/layui/layui.js"></script>
+            <script>
+                layui.use('layer', function () {
+                    var layer = layui.layer
+                        , form = layui.form;
+                });
+                var vue = new Vue({
+                    el: '#userInfo',
+                    data: {
+                        headImgUrl: "img/pic.png",
+                        userName: "张三",
+                        phone: "13411111111",
+                        gender: "女",
+                        birthday: "1987-02-10",
+                        occupation: "老师",
+                        shopName: "店铺xxx",
+                        employName: "李四",
+                        wechat: "mjkk22222",
+                    },
+                    methods: {
+        
+                    },
+                });
+            </script>
+</body>
+</html>

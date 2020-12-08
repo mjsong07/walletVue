@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8"> 
+    <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
+    <title>我的钱包</title>
+    <link rel="stylesheet" href="js/layui/css/layui.mobile.css">
+    <link rel="stylesheet" href="css/css.css" />
+</head>
+<body> 
+        <div class="wallet" id="wallet">
+                <div class="head"> 
+                    <p> <span><sub> ¥ </sub>{{amount}}</span></p>
+                    <h1><img src="img/s_wallet.png" />当前余额</h1>
+                </div> 
+                <div class="content"> 
+                    <ul>
+                        <li v-for="(item, index) in detailList" :key="index" > 
+                             <p>  
+                                  <span v-if="item.type == 1">返利成功</span>
+                                  <span v-if="item.type == 2">消费成功</span>
+                                  <span>{{item.date}}   &nbsp; {{item.time}}</span>
+                             </p> 
+                          <span :class="item.type == 1 ? 'green':'yellow'">{{(item.type == 1 ? '+':'-' ) + " ¥"+  parseFloat(Math.abs(item.money)).toFixed(2)}} </span>  
+                         </li>  
+                    </ul>
+                </div>
+            </div>
+            <script src="js/vue.js" ></script>  
+            <script src="js/layui/layui.js"></script>   
+            <script>  
+                    layui.use(['layer'], function(){
+                      var layer = layui.layer;    
+                    });  
+                    var vue = new Vue({ 
+                        el: '#wallet',
+                        data: {    
+                            amount: "2322.00", 
+                            detailList:[{type:1,money:200.10,date:"2019-09-10",time:"13:20:20"},
+                                        {type:2,money:-200.002,date:"2019-03-12",time:"1:20:10"},
+                                        {type:2,money:-2342.230,date:"2019-10-09",time:"09:20:20"},
+                                        {type:1,money:200.00,date:"2019-10-10",time:"13:20:20"}, 
+                            ]
+                        }, 
+                        methods: { 
+                            wallet :function() {  
+                                window.location.href = "wallet.html";
+                            },   
+                        }, 
+                        computed: {  
+                        }
+                    });
+            </script>
+</body>
+</html>

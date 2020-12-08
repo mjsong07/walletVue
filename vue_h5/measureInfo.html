@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8"> 
+    <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport"> 
+    <title>量体信息</title>
+    <link rel="stylesheet" href="css/css.css" />
+    <link rel="stylesheet" href="js/layui/css/layui.mobile.css">
+</head>
+<body>
+        <div class="measureInfo" id="measureInfo">
+                <div class="head">
+                    <h1>最近一次量体时间:{{measureDate}}</h1>
+                    <h2>量体师：{{userName}}</h2>
+                </div>
+                <div class="content">
+                    <ul>
+                        <li v-for="(item, index) in measureList" :key="index">
+                            <p>{{item.name}}</p>
+                            <p>{{item.length}}</p>
+                        </li> 
+                    </ul>
+                    <h3>紧身塑身衣尺寸：</h3>
+                        <ul class="sub"> 
+                            <li v-for="(item, index) in measureSubList" :key="index">
+                                <p>{{item.name}}</p>
+                                <p>{{item.length}}</p>
+                            </li> 
+                            <!-- 最后一行空标签 请保留 -->
+                            <li>
+                                 
+                            </li>
+                        </ul>
+                </div>
+            </div>
+            <script src="js/vue.js"></script>
+            <script src="js/layui/layui.js"></script>
+            <script>
+                layui.use('layer', function () {
+                    var layer = layui.layer
+                        , form = layui.form;
+                });
+                var vue = new Vue({
+                    el: '#measureInfo',
+                    data: {
+                        measureDate:"2019-10-10",
+                        userName:"张四",
+                        measureList:[{name:"净身高",length:"100.5cm"},
+                                    {name:"后中背",length:"23.5cm"},
+                                    {name:"裤长",length:"32.5cm"}, 
+                                    {name:"净身高",length:"133.5cm"},
+                                    {name:"净身高",length:"101.5cm"},  
+                                    {name:"",length:""}, 
+                                     ],
+                        measureSubList:[{name:"净身高",length:"100.5cm"},
+                                    {name:"后中背",length:"23.5cm"},
+                                    {name:"裤长",length:"32.5cm"}, 
+                                    {name:"净身高",length:"133.5cm"},
+                                    {name:"净身高",length:"101.5cm"}, 
+                                    {name:"体重",length:"167.5cm"},  
+                                        ],
+
+                    },
+                    methods: {
+        
+                    },
+                });
+            </script>
+</body>
+</html>

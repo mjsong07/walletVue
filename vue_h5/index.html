@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8"> 
+    <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport"> 
+    <title>首页</title>
+    <link rel="stylesheet" href="css/css.css" />
+    <link rel="stylesheet" href="js/layui/css/layui.mobile.css">  
+    <style>
+    
+    .index .layui-layer.layui-layer-dialog{margin-top: 30%;}
+    .layui-layer-btn.layui-layer-btn0{ background-color: #4A673AFF; }
+    </style>
+</head>
+<body>
+        <div class="index" id="index">
+            <div class="head">
+                <ul>
+                    <li class="baseInfo"  @click="userInfo">
+                        <img :src="headImgUrl" />
+                        <span>{{phone}}</span>
+                         <a class="more">></a> 
+                    </li>
+                    <li class="wallet"  @click="wallet">
+                        <p><span>{{amount}}</span><span>余额</span></p>
+                        <p></p> 
+                        <p><span>{{coupon}}</span><span>优惠券</span></p>  
+                    </li>
+                </ul>
+            </div> 
+            <div class="content"> 
+                <ul>
+                    <li @click="orderList"> <img src="img/s_advance.png" /><span>我的定制</span> <a class="more">查看 ></a> </li> 
+                    <li @click="measureInfo"> <img src="img/s_measure.png" /><span>量体数据</span><a class="more">查看 ></a>  </li>
+                    <li @click="userInfo"> <img src="img/s_user.png" /><span>个人资料</span><a class="more">查看 ></a>  </li>
+                </ul>
+            </div>
+        </div>
+        <script src="js/vue.js" ></script>  
+        <script src="js/layui/layui.js"></script>   
+        <script>  
+                layui.use(['layer'], function(){
+                  var layer = layui.layer;   
+                  var noUserInfo = true;
+                  if(noUserInfo){
+                    layer.confirm('请先注册会员或绑定会员', {
+                                btn: ['注册/绑定','取消'] //按钮
+                            }, function () {
+                                // alert("xx"); 
+                              window.location.href = "reg.html";
+                            }, function () { 
+                                // alert("xx2");
+                            } 
+                            );
+                  }   
+                });  
+                var vue = new Vue({
+                    el: '#index',
+                    data: { 
+                        headImgUrl: 'img/user.png', 
+                        userName: 'XXX',
+                        phone: '13444444440', 
+                        coupon: "2", 
+                        amount: "0.00", 
+                    },
+                    created () {
+                        
+                    }, 
+                    methods: { 
+                        wallet :function() {  
+                            window.location.href = "wallet.html";
+                        }, 
+                        orderList :function() { 
+                            window.location.href = "orderList.html";
+                        },
+                        couponList :function() {
+                            window.location.href = "coupon.html";
+                        },
+                        measureInfo :function() {
+                            window.location.href = "measureInfo.html";
+                        },
+                        userInfo :function() {
+                            window.location.href = "userInfo.html";
+                        },
+                    }, 
+                });
+        </script>
+</body>
+</html>
