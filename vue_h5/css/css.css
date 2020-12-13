@@ -39,8 +39,6 @@ input::-webkit-input-placeholder, textarea::-webkit-input-placeholder {
 .index .content ul li a { font-size: 13px; color: #9B9B9BFF; margin-right: 20px;}   
 .index .layui-layer.layui-layer-dialog{margin-top: 30%;}
 
-
-
 .reg {}
 .reg .head{ display: flex; flex-direction: column;margin-top: 60px;} 
 .reg .head .imgInfo{ text-align: center;} 
