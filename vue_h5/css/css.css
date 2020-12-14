@@ -14,7 +14,8 @@ input::-webkit-input-placeholder, textarea::-webkit-input-placeholder {
     font-size: 16px;
     text-align: left;
   } 
-  
+  /* 通用底部样式 */
+.footer { position: fixed; bottom: 0; left: 0; text-align: center; width: 100%; height: 30px; }
 .index { height: 100%; background-color: #F6F6F6FF;}
 .index .head{ margin-top: 0px; background-color: #4A673AFF; font-size: 16px; background: url("../img/indexBg.png") no-repeat ; background-size: 100% 100%;}  
 .index .head ul li{ display: flex; flex-direction: row;   padding:  0px 13px;  }  
